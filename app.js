@@ -23,11 +23,9 @@ app.get("/", (req, res, next) => {
 });
 
 mongoose
-    .connect(
-        "mongodb+srv://kawshikbss:eIjc9D3HhqwRvCpP@cluster0.q8x6dij.mongodb.net/?retryWrites=true&w=majority"
-    )
+    .connect(process.env.MONGODB_URI)
     .then(
-        app.listen(5000, () =>
+        app.listen(process.env.PORT || 5000, () =>
             console.log("Listining to http://localhost:5000")
         )
     )
